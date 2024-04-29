@@ -1,3 +1,10 @@
+@use "./variable";
+@use "./base.scss";
+@use "./flex";
+@use "./utils";
+@use "./debug";
+@use "./themes";
+
 /* assets/styles/app.scss */
 
 $red: #fc030b;
