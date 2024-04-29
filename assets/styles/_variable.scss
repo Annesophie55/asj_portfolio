@@ -9,6 +9,10 @@
   --text-color: #444;
 }
 
+.text-color-gray {
+  color: var(--text-color);
+}
+
 .ubuntu-light {
   font-family: "Ubuntu", sans-serif;
   font-weight: 300;
