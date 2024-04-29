@@ -6,13 +6,6 @@ body {
   background-color: var(--gray-2);
 }
 
-.logo-container {
-  width: 80px;
-  height: 80px;
-  position: relative;
-  bottom: 5px;
-}
-
 i {
   scale: 1.5;
 }
@@ -43,9 +36,6 @@ img{
   max-width: 100%;
 }
 
-header {
-  box-shadow: var(--box-shadow-nav);
-}
 // input {
 //   font-family: var(--font-family);
 // }

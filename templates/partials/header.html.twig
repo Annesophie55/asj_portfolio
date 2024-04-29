@@ -1,12 +1,15 @@
-<header class="container">
-  <div class='header-container d-flex flex-around ubuntu-regular flex-fill text-color-gray'>
-        <a href="{{ path('app_home_page') }}" class="logo-container">
+<header class="w-100">
+  <div class='header-container d-flex flex-between ubuntu-regular text-color-gray flex-fill'>
+        <a href="{{ path('app_home_page') }}" class="logo-container ms-40">
           <img src="{{ asset('images/logo_portfolio.svg')}}" alt="">
         </a>
-        <nav class="d-flex flex-evenly fs-20" >
+          <button class="hamburger" aria-label="Menu" aria-controls="navigation">
+              <i class="fa-solid fa-bars"></i>
+          </button>
+        <nav id="navigation" class="d-flex flex-evenly" >
             <ul class="d-flex nav-links">
               <li class="me-15"><a href="">A propos</a></li>
-              <li class="me-15"><a href="">Experience</a></li>
+              <li class="me-15"><a href="">Experiences</a></li>
               <li class="me-15"><a href="">Projets</a></li>
               <li class="me-15"><a href="">Technos</a></li>
               <li><a href="">Contact</a></li>

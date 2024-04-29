@@ -1,0 +1,35 @@
+@use '../mixins' as mixin;
+
+header {
+  box-shadow: var(--box-shadow-nav);
+}
+
+.logo-container {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  bottom: 1px;
+}
+
+.header-container {
+  width: 100%;
+}
+
+.hamburger {
+  display: none; 
+}
+
+.is-hidden {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  nav {
+    position: absolute;
+    flex-direction: column;
+    top: 100px;
+  }
+}
