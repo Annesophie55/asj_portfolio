@@ -26,10 +26,25 @@ header {
 @media screen and (max-width: 768px) {
   .hamburger {
     display: block;
+    border: none;
+    margin-right: 30px;
   }
   nav {
     position: absolute;
     flex-direction: column;
-    top: 100px;
+    top: 61px;
+    width: 100%;
+    background-color: var(--gray-2);
+    
+    .nav-links {
+      display: block;
+      li {
+        text-align: center;
+        padding: 7px;
+      }
+    }
+    .social-links {
+      padding: 7px;
+    }
   }
 }
