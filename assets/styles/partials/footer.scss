@@ -31,12 +31,12 @@
     height: 120px;
     border-radius: 50%;
     box-shadow: inset 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
-    i {
+    .fa-chevron-up{
       position: absolute;
       scale: 4;
-      fill: var(--gray-1);
       top: 36px;
       z-index: 10;
+      color: rgba(0, 0, 0, 0.1);
     }
   }
   .calc {
