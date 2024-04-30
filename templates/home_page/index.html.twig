@@ -1,31 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}A propos de moi{% endblock %}
+{% block title %}Anne-Sophie Jackowska Dev - À propos{% endblock %}
 
 {% block body %}
-
-<div class="about-container container ubuntu-regular">
-    <div class="title-block about-grid-item">
-        <h1 class="my-30">Anne-Sophie Jackowska</h1>
-        <h2 class="my-30">Développeuse Backend Junior</h2>
-        <blockquote class="my-30 ubuntu-light">
-        "Choisis un travail que tu aimes, et tu n'auras pas à travailler un seul jour de ta vie."
-        <footer class="my-10 ubuntu-light-italic">~ Confucius ~</footer>
-        </blockquote>
-
-        
-    </div>
-    <div class="about-content ubuntu-medium mx-60">
-        <p class="about-grid-item">Il y a deux ans, j'ai découvert le monde du web, un domaine qui s'est rapidement transformé en une passion dévorante. Après une carrière dans le soin, suivie d'une formation en comptabilité où j'ai été captivée par la puissance d'Excel grâce à une formatrice inspirante, j'ai trouvé ma vocation. </p>
-        
-        <p>Le confinement a été un tournant décisif, révélant mon enthousiasme pour la recherche d'information et la résolution de problèmes en totale autonomie. Cette période m'a également permis de lancer mon entreprise d'assistance administrative en ligne. C'est en développant le site web pour cette activité que j'ai plongé dans le HTML et le CSS, ouvrant la porte à une future carrière en développement web. </p>
-        
-        <p>J'ai rapidement évolué vers le back-end, me formant en PHP et Symfony, et j'ai obtenu un titre de développeur web, ce qui a validé mes compétences dans ce domaine. Aujourd'hui, je cherche à approfondir mes connaissances en Java à travers une alternance, tout en continuant à me former de manière autonome. Mon objectif est d'acquérir l'expérience nécessaire pour sécuriser mon premier poste en tant que développeur junior.</p>
-        
-        <p>Parallèlement, je travaille sur des projets personnels, notamment en React pour le front-end, consolidant ainsi mes connaissances et compétences dans un environnement dynamique et évolutif.</p>
-        
-        <p>Mon parcours est un témoignage de ma capacité à apprendre et à m'adapter rapidement, traits essentiels pour exceller dans le secteur technologique. Passionnée et déterminée, je suis prête à relever les défis et à apporter ma pierre à l'édifice dans le monde de la programmation.
-        </p>
-    </div>
-</div>
+<section class="home">
+    <div class="home-container" style="background-image: url('{{ asset('images/header.jpeg') }}');">
+        <div class="overlay"></div>
+        <div class="home-txt ubuntu-medium">
+            <h1 class="home-txt-titre ">Je suis <span class="autoTyping"></span></h1>
+            <p class="ubuntu-medium">Le courage, c'est peut-être d'aller au bout de ce qui nous passionne, de croire en nos projets, en nos rêves, même si cela demande de faire face à beaucoup d'obstacles. Ce n'est pas tant une absence de peur, mais plutôt la force de continuer malgré elle. <br> <span class="ubuntu-medium-italic">Alexandre Astier</span></p> 
+            
+            <div class="home-btn ubuntu-medium">
+               <a href="{{ asset('images/Jackowska_Alternant.pdf') }}" class="cvBtn">CV</a>
+               <a href="#contact" class="contactBtn" target="\blank">Me contacter</a>
+            </div  >
+        </div>
+    </div>    
+</section>
 {% endblock %}
+      

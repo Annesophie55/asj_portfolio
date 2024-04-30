@@ -1,5 +1,53 @@
-footer {
-  color: var(--gray-3);
+.footer {
+  color: var(--gray-1);
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100px;
+  .footer-container {
+    position: relative;
+    bottom: 70px;
+  }
+}
+
+.back-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray-1);
+    position: relative;
+    bottom: 30%;
+    text-decoration: none;
+    background-color: var(--gray-2);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: inset 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+    i {
+      position: absolute;
+      scale: 4;
+      fill: var(--gray-1);
+      top: 36px;
+      z-index: 10;
+    }
+  }
+  .calc {
+    width: 120px;
+    height: 60px;
+    background-color: red;
+    position: absolute;
+    top: 0.7%;
+    background-color: var(--gray-2);
+    z-index: 12;
+  }
 }
 
 @media screen and (max-width: 768px) {
