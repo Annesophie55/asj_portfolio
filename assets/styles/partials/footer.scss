@@ -1,0 +1,16 @@
+footer {
+  color: var(--gray-3);
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    ul {
+      margin-top: 10px;
+    }
+  }
+}
