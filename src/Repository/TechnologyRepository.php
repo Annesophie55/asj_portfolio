@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Technologie;
+use App\Entity\Technology;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Technologie>
+ * @extends ServiceEntityRepository<Technology>
  */
-class TechnologieRepository extends ServiceEntityRepository
+class TechnologyRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Technologie::class);
+        parent::__construct($registry, Technology::class);
     }
 
     //    /**
-    //     * @return Technologie[] Returns an array of Technologie objects
+    //     * @return Technology[] Returns an array of Technology objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class TechnologieRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Technologie
+    //    public function findOneBySomeField($value): ?Technology
     //    {
     //        return $this->createQueryBuilder('t')
     //            ->andWhere('t.exampleField = :val')

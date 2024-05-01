@@ -25,24 +25,24 @@ class Experience
     #[ORM\Column(length: 255)]
     private ?string $place = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateOfExp = null;
+    #[ORM\Column(length: 255)]
+    private ?string $dateOfExp = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $duration = null;
+    private ?string $role = null;
 
     #[ORM\Column(length: 255)]
     private ?string $type = null;
 
     /**
-     * @var Collection<int, technologie>
+     * @var Collection<int, Technology>
      */
-    #[ORM\ManyToMany(targetEntity: technologie::class, inversedBy: 'experiences')]
-    private Collection $technologies;
+    #[ORM\ManyToMany(targetEntity: Technology::class, inversedBy: 'experiences')]
+    private Collection $Technologies;
 
     public function __construct()
     {
-        $this->technologies = new ArrayCollection();
+        $this->Technologies = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,26 +86,26 @@ class Experience
         return $this;
     }
 
-    public function getDateOfExp(): ?\DateTimeInterface
+    public function getDateOfExp(): ?string
     {
         return $this->dateOfExp;
     }
 
-    public function setDateOfExp(\DateTimeInterface $dateOfExp): static
+    public function setDateOfExp(string $dateOfExp): static
     {
         $this->dateOfExp = $dateOfExp;
 
         return $this;
     }
 
-    public function getDuration(): ?string
+    public function getRole(): ?string
     {
-        return $this->duration;
+        return $this->role;
     }
 
-    public function setDuration(string $duration): static
+    public function setRole(string $role): static
     {
-        $this->duration = $duration;
+        $this->role = $role;
 
         return $this;
     }
@@ -123,25 +123,25 @@ class Experience
     }
 
     /**
-     * @return Collection<int, technologie>
+     * @return Collection<int, Technology>
      */
     public function getTechnologies(): Collection
     {
-        return $this->technologies;
+        return $this->Technologies;
     }
 
-    public function addTechnology(technologie $technology): static
+    public function addTechnology(Technology $technology): static
     {
-        if (!$this->technologies->contains($technology)) {
-            $this->technologies->add($technology);
+        if (!$this->Technologies->contains($technology)) {
+            $this->Technologies->add($technology);
         }
 
         return $this;
     }
 
-    public function removeTechnology(technologie $technology): static
+    public function removeTechnology(Technology $technology): static
     {
-        $this->technologies->removeElement($technology);
+        $this->Technologies->removeElement($technology);
 
         return $this;
     }

@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\TechnologieRepository;
+use App\Repository\TechnologyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: TechnologieRepository::class)]
-class Technologie
+#[ORM\Entity(repositoryClass: TechnologyRepository::class)]
+class Technology
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

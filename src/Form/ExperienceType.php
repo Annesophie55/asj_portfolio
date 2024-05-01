@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Experience;
-use App\Entity\technologie;
+use App\Entity\Technology;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,8 +22,8 @@ class ExperienceType extends AbstractType
             ])
             ->add('duration')
             ->add('type')
-            ->add('technologies', EntityType::class, [
-                'class' => technologie::class,
+            ->add('Technologies', EntityType::class, [
+                'class' => Technology::class,
                 'choice_label' => 'id',
                 'multiple' => true,
             ])
