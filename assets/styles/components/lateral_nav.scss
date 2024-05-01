@@ -1,59 +1,81 @@
 .lateral_nav {
   min-width: 600px;
-  position: sticky;
-  align-self: flex-start;
-  padding-top: 50px;
-  padding-bottom: 40px;
+  height: 100%;
   color:#f4f4ff;
-  margin-left: 80px;
-  margin-right: 40px;
-  img {
+  position: relative;
+  margin-top: 40px;
+  bottom: 60px;
+  .bloc_sticky_nav {  
+    margin-left: 120px;
+    margin-top: 50px;
+    position: fixed;
+    img {
     border-radius: 10px;
     margin-top: 40px;
     align-self: flex-start;
-  }
-  h1 {
-    margin-right: auto;
-    font-size: 40px;
-  }
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-    margin-top: 25px;
-    li {
+
+    }
+    h1 {
+      margin-right: auto;
+      font-size: 40px;
+    }
+    ul {
       display: flex;
+      flex-direction: column;
+      align-items: start;
       width: 100%;
-      font-size: 22px;
-      color:rgb(80,96,125);
-      &:not(:first-child) {
-        margin-top: 20px;
-      }
-      &::before {
-        content: ""; 
+      margin-top: 25px;
+      li {
         display: flex;
-        position: relative;
-        height: 1px;
-        width: 40px;
-        background-color:rgb(80,96,125);
-        z-index: 10;
-        align-self: center;
-        margin-right: 20px;
-        transition: transform 0.1s ease;
-        transform-origin: left;
-      }
-      &:hover::before {
-        transform: scaleX(2) scaleY(2);
-        background-color: #ffff;
-      }
-      &:hover {
-        span {
-          transform: translateX(40px) scale(1.2);
-          color: #ffff;
+        width: 100%;
+        button {
+          border: none;
+          background-color: inherit;
+          font-size: 20px;
+          color:rgb(80,96,125);
+          box-shadow: var(--box-shadow);
         }
 
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
+        &::before {
+          content: ""; 
+          display: flex;
+          position: relative;
+          height: 1px;
+          width: 40px;
+          background-color:rgb(80,96,125);
+          z-index: 10;
+          align-self: center;
+          margin-right: 20px;
+          transition: transform 0.1s ease;
+          transform-origin: left;
+        }
+        &:hover::before {
+          transform: scaleX(2) scaleY(2);
+          background-color: #ffff;
+        }
+        &:hover {
+          button {
+            transform: translateX(40px) scale(1.1);
+            color: #ffff;
+            border: none;
+            background-color: inherit;
+          }
+        }
       }
     }
+  }
+}
+
+.active {
+  &::before {
+    transform: scaleX(2) scaleY(2);
+    background-color: #ffff !important;
+  }
+  button {
+    transform: translateX(40px) scale(1.2);
+    color: #ffff !important;
   }
 }

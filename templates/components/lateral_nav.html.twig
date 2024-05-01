@@ -1,13 +1,19 @@
-<nav class="lateral_nav d-flex flex-column  flex-center">
-
-
-      <h1 class="inter-bold">Anne-Sophie <br>
-  Jackowska</h1>
-
-  <ul class="inter-regular">
-      <li><span>Formation</span></li>
-      <li><span>Entreprise</span></li>
-  </ul>
-          <img src="https://kaamelott-gifboard.fr/gifs/affaire-a-un-professionnel.gif" alt="Gif Kaamelott: je vois que j'ai affaire à un professionnel" >
-
+<nav class="lateral_nav">
+    <div class="bloc_sticky_nav d-flex flex-column  flex-center">
+        <h1 class="inter-bold">Anne-Sophie <br>
+        Jackowska</h1>
+        <ul>
+          <li onclick="addActiveClass(this)" class="nav_lat_link"><button class="inter-regular" onclick="location.href='#formation';">Formation</button></li>
+          <li onclick="addActiveClass(this)" class="nav_lat_link"><button class="inter-regular" onclick="location.href='#compagny';">Entreprise</button></li>
+        </ul>
+        <img src="https://kaamelott-gifboard.fr/gifs/affaire-a-un-professionnel.gif" alt="Gif Kaamelott: je vois que j'ai affaire à un professionnel" >
+    </div>
 </nav>
+
+<script>
+function addActiveClass(clickedElement) {
+  var links = document.querySelectorAll('.nav_lat_link');
+  links.forEach(link => link.classList.remove('active'));
+  clickedElement.classList.add('active');
+  }
+</script>
