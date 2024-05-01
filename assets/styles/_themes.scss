@@ -24,6 +24,15 @@
   color: var(--primary);
 }
 
+
+.bgc-navy-gradient {
+  background: rgb(15,23,42);
+  background: -moz-linear-gradient(17deg, rgba(14,12,61,1) 43%, rgba(13,19,82,1) 71%, rgba(22,15,107,1) 91%);
+  background: -webkit-linear-gradient(17deg, rgba(14,12,61,1) 43%, rgba(13,19,82,1) 71%, rgba(22,15,107,1) 91%);
+  background: linear-gradient(17deg, rgba(14,12,61,1) 43%, rgba(13,19,82,1) 71%, rgba(22,15,107,1) 91%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0e0c3d",endColorstr="#160f6b",GradientType=1);
+} 
+
 .check-icon {
   color: var(--green);
 }
@@ -31,4 +40,8 @@
 .list-item {
   width: 100%;
   background-color: aqua;
+}
+
+.card{
+  border-radius: 20px;
 }
