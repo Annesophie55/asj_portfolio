@@ -3,17 +3,19 @@
 {% block title %}Experience index{% endblock %}
 
 {% block body %}
-<section class="d-flex flex-between bgc-navy-gradient ">
+<div class="experience bgc-navy-gradient">
     {% include 'components/lateral_nav.html.twig' %}
     <div class="experience_container">
-        <div class="formation_card card d-flex">
-            <p>Date</p>
-            <div class="">
-                <h1>Titre <span>Role</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                {% include 'components/technos_bloc.html.twig' %}
-            </div>
-        </div>
+    {% include 'components/card.html.twig' %}
     </div>
-</section>
+    <div id="halo" style="position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    width: 400px; 
+    height: 400px;
+    background: radial-gradient(circle, rgba(9, 41, 131, 0.331), transparent 70%);
+    transition: transform 0.1s ease-out; 
+    transform: translate(-25%, -25%);
+    z-index: 1000; "></div>
+</div>
 {% endblock %}

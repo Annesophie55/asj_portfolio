@@ -1,5 +1,18 @@
-.experience_container {
+.experience {
   color:#d2c9c9;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-top: 20px;
+}
+
+.halo {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  width: 100px; 
+  height: 100px;
+  background: radial-gradient(circle, rgba(9, 41, 131, 0.331), transparent 70%);
+  transition: transform 0.1s ease-out; 
+  transform: translate(-50%, -50%);
+  z-index: 1000; 
 }
