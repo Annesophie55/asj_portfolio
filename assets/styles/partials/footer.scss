@@ -31,17 +31,21 @@
     height: 120px;
     border-radius: 50%;
     box-shadow: inset 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+
     .fa-chevron-up{
       position: absolute;
       scale: 4;
       top: 36px;
       z-index: 10;
       color: rgba(0, 0, 0, 0.1);
+      &:hover {
+        scale: 6;
+      }
     }
   }
   .calc {
     width: 120px;
-    height: 60px;
+    height: 70px;
     background-color: red;
     position: absolute;
     top: 0.7%;
