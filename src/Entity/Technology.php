@@ -34,9 +34,16 @@ class Technology
     #[ORM\ManyToMany(targetEntity: Experience::class, mappedBy: 'technologies')]
     private Collection $experiences;
 
+    /**
+     * @var Collection<int, Project>
+     */
+    #[ORM\ManyToMany(targetEntity: Project::class, mappedBy: 'technologies')]
+    private Collection $projects;
+
     public function __construct()
     {
         $this->experiences = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,6 +121,33 @@ class Technology
     {
         if ($this->experiences->removeElement($experience)) {
             $experience->removeTechnology($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Project>
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): static
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+            $project->addTechnology($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): static
+    {
+        if ($this->projects->removeElement($project)) {
+            $project->removeTechnology($this);
         }
 
         return $this;

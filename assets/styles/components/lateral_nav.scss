@@ -1,5 +1,5 @@
 .lateral_nav {
-  min-width: 600px;
+  max-width: 600px;
   height: 100%;
   color:#f4f4ff;
   position: relative;
@@ -9,6 +9,10 @@
     margin-left: 120px;
     margin-top: 50px;
     position: fixed;
+    p{
+      max-width: 400px;
+      line-height: 25px;
+    }
     img {
     border-radius: 10px;
     margin-top: 40px;
@@ -80,4 +84,22 @@
     transform: translateX(40px) scale(1.2);
     color: #ffff !important;
   }
+}
+
+.technos_items_project {
+  border: 1px solid rgb(80,96,125);
+  padding: 5px;
+  border-radius: 25px;
+  font-size: 16px !important;
+  cursor: pointer;
+  &:not(:first-of-type) {
+    margin-left: 5px;
+  }
+}
+
+
+.techno_list_project {
+  width: 100%;
+  display: flex;
+  justify-content: start;
 }

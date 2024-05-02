@@ -17,8 +17,11 @@ class ExperienceController extends AbstractController
     #[Route('/', name: 'app_experience_index', methods: ['GET'])]
     public function index(ExperienceRepository $experienceRepository): Response
     {
+
         return $this->render('experience/index.html.twig', [
             'experiences' => $experienceRepository->findAll(),
+            'showImage' => false,
+            'pageProject' =>false
         ]);
     }
 

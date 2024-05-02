@@ -2,11 +2,22 @@
     <div class="bloc_sticky_nav d-flex flex-column  flex-center">
         <h1 class="inter-bold">Anne-Sophie <br>
         Jackowska</h1>
+        {% if pageProject %}
+        <p class="project_text inter_regular">Pour garantir la maintenabilité et la réutilisabilité du code dans mes projets d'envergure, j'adopte systématiquement la méthode agile. Cette approche me permet de répondre de manière flexible et efficace aux besoins évolutifs du projet. Dès les premières étapes, je m'appuie sur des cahiers des charges détaillés, des wireframes, et des prototypes réalisés sur Figma pour visualiser et peaufiner les fonctionnalités avant leur développement, assurant ainsi que chaque produit fini, répond non seulement aux exigences initiales mais est également prêt à évoluer. </p>
+
+        <div class="techno_list_project">
+            <button class="technos_items_project">PHP</button>
+            <button class="technos_items_project">Symfony</button>
+        </div>
+        {% else %}
         <ul>
           <li onclick="addActiveClass(this)" class="nav_lat_link"><button class="inter-regular" onclick="location.href='#formation';">Formation</button></li>
           <li onclick="addActiveClass(this)" class="nav_lat_link"><button class="inter-regular" onclick="location.href='#compagny';">Entreprise</button></li>
         </ul>
         <img src="https://kaamelott-gifboard.fr/gifs/affaire-a-un-professionnel.gif" alt="Gif Kaamelott: je vois que j'ai affaire à un professionnel" >
+        {% endif %}
+
+
     </div>
 </nav>
 

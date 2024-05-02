@@ -1,5 +1,9 @@
 <div class="card">
-        <p class="dateOf inter-regular">Date</p>
+        <div>  {% if showImage %}
+            <img src="path/to/image.jpg" alt="Image Description">
+        {% else %}
+            <p class="dateOf inter-regular">Date</p>
+        {% endif %}</div>
     <div class="aboutExp inter-regular">
         <h1>Titre | Role</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>

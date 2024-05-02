@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+{% block body %}
+   <div class="project_container bgc-navy-gradient">
+       {% include 'components/lateral_nav.html.twig' %}
+            <div id="project">
+            {% include 'components/card.html.twig' %}
+            {% include 'components/card.html.twig' %}
+            {% include 'components/card.html.twig' %}
+            {% include 'components/card.html.twig' %}
+            {% include 'components/card.html.twig' %}
+            </div>
+   </div>
+{% endblock %}
