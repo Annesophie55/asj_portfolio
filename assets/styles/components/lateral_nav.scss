@@ -28,12 +28,14 @@
       li {
         display: flex;
         width: 100%;
+        cursor: pointer;
         button {
           border: none;
           background-color: inherit;
           font-size: 20px;
           color:rgb(80,96,125);
           box-shadow: var(--box-shadow);
+          cursor: pointer;
         }
 
         &:not(:first-child) {

@@ -1,5 +1,4 @@
 //Typed script header
-
 let typed = new Typed('.autoTyping',{
   strings:['Anne-Sophie...', 'Développeuse...', 'Passionnée...', 'la Dev qu\'il vous faut !'],
   typeSpeed: 100,

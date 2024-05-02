@@ -6,27 +6,62 @@
 <div class="experience bgc-navy-gradient">
     {% include 'components/lateral_nav.html.twig' %}
     <div class="experience_container">
-    {% include 'components/card.html.twig' with  {'my_id': 'formation'}  %}
-    {% include 'components/card.html.twig' with  {'my_id': 'formation'}  %}
-    {% include 'components/card.html.twig' with  {'my_id': 'formation'}  %}
-    {% include 'components/card.html.twig' with  {'my_id': 'formation'}  %}
-    {% include 'components/card.html.twig' with  {'my_id': 'formation'}  %}
-    <hr>
-    {% include 'components/card.html.twig' with {'my_id': 'compagny'}  %}
-    {% include 'components/card.html.twig' with {'my_id': 'compagny'}  %}
-    {% include 'components/card.html.twig' with {'my_id': 'compagny'}  %}
-    {% include 'components/card.html.twig' with {'my_id': 'compagny'}  %}
-    {% include 'components/card.html.twig' with {'my_id': 'compagny'}  %}
-    {% include 'components/card.html.twig' with {'my_id': 'compagny'}  %}
+    <div id="formation">
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
     </div>
-    <div id="halo" style="position: fixed;
+    <hr>
+    <div id="compagny">
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    {% include 'components/card.html.twig' %}
+    </div>
+
+    </div>
+
+</div>
+        <div id="halo" style="position: fixed;
     pointer-events: none;
     border-radius: 50%;
     width: 400px; 
     height: 400px;
     background: radial-gradient(circle, rgba(9, 41, 131, 0.331), transparent 70%);
-    transition: transform 0.1s ease-out; 
-    transform: translate(-25%, -25%);
     z-index: 1000; "></div>
-</div>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var halo = document.getElementById('halo');
+  var navbar = document.querySelector('header');
+
+  window.addEventListener('mousemove', (e) => {
+    const navbarRect = navbar.getBoundingClientRect();
+    const haloSize = 200;  // Moitié de la taille du halo pour centrer sur la souris
+
+    // Vérifier si la souris est en dehors de la navbar
+    if (e.clientX < navbarRect.left || e.clientX > navbarRect.right ||
+        e.clientY < navbarRect.top || e.clientY > navbarRect.bottom) {
+      halo.style.left = `${e.clientX - haloSize}px`;
+      halo.style.top = `${e.clientY - haloSize}px`;
+      halo.style.display = 'block';  // Assurez-vous que le halo est visible
+    } else {
+      halo.style.display = 'none';  // Cachez le halo lorsque la souris est sur la navbar
+    }
+  });
+});
+
+  function addActiveClass(clickedElement) {
+    var links = document.querySelectorAll('.nav_lat_link');
+    links.forEach(link => link.classList.remove('active'));
+    clickedElement.classList.add('active');
+  }
+
+
+
+</script>
 {% endblock %}

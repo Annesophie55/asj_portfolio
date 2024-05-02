@@ -1,8 +1,9 @@
 import './bootstrap.js';
 import './scripts/header.js';
-import './scripts/home_page.js';
+
 import './scripts/mouse_halo.js';
-import './scripts/lateral_nav.js';
+
+import './scripts/home_page.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
