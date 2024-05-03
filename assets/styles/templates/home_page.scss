@@ -1,6 +1,6 @@
 .home{
   width: 100vw;
-  height: 90vh;
+  height: 80vh;
   position: relative;
   display: flex;
   justify-content: left;
@@ -21,6 +21,7 @@
   background-color: rgb(45, 43, 43, 0.5);
   padding: 10px;
   text-align: justify;
+  min-width: 100px;
 }
 
 .overlay {
@@ -77,4 +78,10 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .home-txt {
+    max-width: 300px;
+  }
 }
