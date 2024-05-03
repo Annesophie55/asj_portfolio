@@ -4,4 +4,24 @@
 
 {% block body %}
 
+<div class="contactContainer ubuntu-regular bgc-dark-green-gradient without-overflow">
+  <div class="contact_bloc_left  ubuntu-medium d-flex flex-center flex-column ">
+    <p>Connectons-nous ! Je suis toujours ouverte à de nouvelles opportunités.</p>
+    <img src="https://kaamelott-gifboard.fr/gifs/comment-tourne-change-tout.gif" alt="">
+  </div>
+  <div class="contact_bloc_right">
+    {{ form_start(formContact) }}
+    {{ form_row(formContact.nom) }}
+    {{ form_row(formContact.email) }}
+    {{ form_row(formContact.objet) }}
+    {{ form_row(formContact.message) }}
+
+    {{ form_row(formContact.Envoyer)}}
+    {{ form_end(formContact) }}
+
+  </div>
+</div>
+
+
+
 {% endblock %}
