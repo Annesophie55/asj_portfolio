@@ -28,7 +28,12 @@
 .bgc-navy-gradient {
   background: rgb(3,2,38);
   background: linear-gradient(17deg, rgba(3,2,38,1) 43%, rgba(5,11,74,1) 71%, rgba(11,4,94,1) 91%);
-} 
+}
+
+.bgc-dark-green-gradient {
+  background: rgb(3,49,37);
+  background: linear-gradient(98deg, rgba(3,49,37,0.9931431190640319) 28%, rgba(17,106,37,1) 62%, rgba(4,43,8,1) 85%);
+}
 
 .check-icon {
   color: var(--green);
@@ -37,4 +42,8 @@
 .list-item {
   width: 100%;
   background-color: aqua;
+}
+
+.without-overflow {
+  overflow: hidden;
 }
