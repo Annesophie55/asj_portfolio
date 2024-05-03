@@ -13,18 +13,21 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function index(Request $request): Response
     {
-        $form = $this->createForm(ContactType::class);
-        $form->handleRequest($request);
+        $formContact = $this->createForm(ContactType::class, null, [
+            'attr' => ['id' => 'contactForm'] // Ajouter l'ID ici
+        ]);
+        $formContact->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $contactData = $form->getData();
+        if ($formContact->isSubmitted() && $formContact->isValid()) {
+            $contactData = $formContact->getData();
             // Envoyer les données par e-mail, etc.
 
             return $this->redirectToRoute('success_page');
         }
 
         return $this->render('contact/index.html.twig', [
-            'form' => $form->createView(),
+            'formContact' => $formContact->createView(),
+            'addChevronFooter' => false
         ]);
     }
 }

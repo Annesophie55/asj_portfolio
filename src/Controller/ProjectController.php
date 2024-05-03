@@ -20,7 +20,8 @@ class ProjectController extends AbstractController
         return $this->render('project/index.html.twig', [
             'projects' => $projectRepository->findAll(),
             'showImage' => true,
-            'pageProject' =>true
+            'pageProject' =>true,
+            'addChevronFooter' => true
         ]);
     }
 

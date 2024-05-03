@@ -21,7 +21,8 @@ class ExperienceController extends AbstractController
         return $this->render('experience/index.html.twig', [
             'experiences' => $experienceRepository->findAll(),
             'showImage' => false,
-            'pageProject' =>false
+            'pageProject' =>false,
+            'addChevronFooter' => true
         ]);
     }
 

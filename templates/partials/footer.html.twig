@@ -1,9 +1,11 @@
-<footer class="footer">
-     <div class="back-to-top">
+
+{% if addChevronFooter %}
+<footer class="footer-with-chevron">
+         <div class="back-to-top">
         <a href="#top"><i class="fa-solid fa-chevron-up"></i></a>
         <div class="calc"></div>
     </div>
-    <div class="footer-container d-flex flex-between mx-80 ubuntu-light">
+        <div class="footer-container d-flex flex-between mx-80 ubuntu-light">
         <span>&copy 2024 Anne-Sophie Jackowska</span>
         <ul class="d-flex">
             <li class="me-15"><a href="{{ path('app_about') }}">À propos</a></li>
@@ -13,3 +15,17 @@
         </ul>
     </div>
 </footer>
+{% else %}
+<footer class="footer-without-chevron">
+    <div class="footer-container-without-chevron d-flex flex-between mx-80 ubuntu-light">
+        <span>&copy 2024 Anne-Sophie Jackowska</span>
+        <ul class="d-flex">
+            <li class="me-15"><a href="{{ path('app_about') }}">À propos</a></li>
+            <li class="me-15"><a href="{{ path('app_experience_index') }}">Experiences</a></li>
+            <li class="me-15"><a href="{{ path('app_project_index') }}">Projets</a></li>
+            <li><a href="{{ path('app_contact') }}">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+{% endif %}
+
