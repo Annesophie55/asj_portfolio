@@ -72,3 +72,10 @@
     border-radius: 5px;
   }
 }
+
+@media screen and (max-width:800px) {
+  .contactContainer {
+  grid-template-columns: 1fr !important;
+  padding-bottom: 40px;
+}
+}

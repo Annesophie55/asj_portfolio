@@ -1,18 +1,17 @@
 .lateral_nav {
   min-width: 350px;
+  max-height: 90vh;
   height: 100%;
   color:#f4f4ff;
   position: relative;
-  margin-top: 40px;
-  bottom: 60px;
   transition: transform 0.6s ease;
   .bloc_sticky_nav {  
     margin-left: 80px;
     position: fixed;
     transition: transform 0.6s ease;
+    top: 20px;
     p{
       max-width: 400px;
-      line-height: 25px;
     }
     img {
     border-radius: 10px;
@@ -24,6 +23,7 @@
       margin-right: auto;
       font-size: 40px;
       padding: 20px;
+      margin-top: 35px;
     }
     ul {
       display: flex;
@@ -96,16 +96,7 @@
   border-radius: 25px;
   font-size: 16px !important;
   cursor: pointer;
-  &:not(:first-of-type) {
-    margin-left: 5px;
-  }
-}
-
-
-.techno_list_project {
-  width: 100%;
-  display: flex;
-  justify-content: start;
+  margin: 5px;
 }
 
 
@@ -130,13 +121,21 @@
   border: 2px solid rgb(10, 234, 250);
   justify-content: center;
   align-items: center;
-  top: 30vh;
+  top: 20vh;
   position: fixed;
   transition: transform 0.6s ease;
   display: none;
   z-index: 1005;
   padding: 0 3px;
 }
+
+.techno_list_project {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  margin-left: 10px;
+}
+
 
 
 
@@ -148,6 +147,7 @@
     z-index: 1500;
     background-color: #050219;
     position: relative;
+    border-radius: 5px;
     h1 {
       font-size: 28px !important;
     }
@@ -156,6 +156,7 @@
     }
 
 }
+
 .lateral_nav {
   width: 300px;
   background-color: #050219;
@@ -165,7 +166,6 @@
   display: flex;
   flex-direction: row-reverse;
   bottom: 0px;
-  border-right:  2px solid rgb(10, 234, 250);
 }
 
 
@@ -174,6 +174,10 @@
   position: absolute;
   z-index: 1500;
   left: 350px;
+}
+
+.project_text {
+  display: none;
 }
 
 }
