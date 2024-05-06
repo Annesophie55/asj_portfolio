@@ -22,7 +22,21 @@ class ExperienceController extends AbstractController
             'experiences' => $experienceRepository->findAll(),
             'showImage' => false,
             'pageProject' =>false,
-            'addChevronFooter' => true
+            'addChevronFooter' => true,
+            'adminTools'=> false
+        ]);
+    }
+
+    #[Route('/admin', name: 'app_experience_admin_index', methods: ['GET'])]
+    public function adminToolsOnExperienceIndex(ExperienceRepository $experienceRepository): Response
+    {
+
+        return $this->render('experience/index.html.twig', [
+            'experiences' => $experienceRepository->findAll(),
+            'showImage' => false,
+            'pageProject' =>false,
+            'addChevronFooter' => true,
+            'adminTools'=> true
         ]);
     }
 

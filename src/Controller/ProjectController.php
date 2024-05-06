@@ -21,7 +21,20 @@ class ProjectController extends AbstractController
             'projects' => $projectRepository->findAll(),
             'showImage' => true,
             'pageProject' =>true,
-            'addChevronFooter' => true
+            'addChevronFooter' => true,
+            'adminTools'=> false
+        ]);
+    }
+
+    #[Route('/admin', name: 'app_project__admin_index', methods: ['GET'])]
+    public function adminToolOnProjectIndex(ProjectRepository $projectRepository): Response
+    {
+        return $this->render('project/index.html.twig', [
+            'projects' => $projectRepository->findAll(),
+            'showImage' => true,
+            'pageProject' =>true,
+            'addChevronFooter' => true,
+            'adminTools'=> true
         ]);
     }
 

@@ -1,4 +1,10 @@
-<nav class="lateral_nav">
+
+<nav class="lateral_nav" id="side_nav">
+   <input type="checkbox" id="side_toggle" class="toggle-checkbox">
+    <label for="side_toggle" class="toggle-label">
+        <i class="fa fa-chevron-right"></i>
+    </label>
+
     <div class="bloc_sticky_nav d-flex flex-column  flex-center">
         <h1 class="inter-bold">Anne-Sophie <br>
         Jackowska</h1>
@@ -24,15 +30,28 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var halo = document.getElementById('halo');
+    var checkbox = document.getElementById('side_toggle'); 
+  var links = document.querySelectorAll('.nav_lat_link');
   window.addEventListener('mousemove', (e) => {
     const haloSize = 200;  // Moitié de la taille du halo pour centrer sur la souris
     halo.style.left = `${e.clientX - haloSize}px`;
     halo.style.top = `${e.clientY - haloSize}px`;
   });
 
+    // Ajout d'un écouteur d'événements pour tous les liens
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      addActiveClass(link);
+      checkbox.checked = !checkbox.checked; // Bascule l'état de la checkbox
+    });
+  });
+
+
+
   function addActiveClass(clickedElement) {
     var links = document.querySelectorAll('.nav_lat_link');
     links.forEach(link => link.classList.remove('active'));
+
     clickedElement.classList.add('active');
   }
 
@@ -41,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var compagnyLink = document.querySelector('.nav_lat_link button[onclick*="compagny"]');
   var formationBlock = document.getElementById('formation');
   var compagnyBlock = document.getElementById('compagny');
+
+
 
   formationBlock.addEventListener('mouseenter', () => addActiveClass(formationLink.parentElement));
   compagnyBlock.addEventListener('mouseenter', () => addActiveClass(compagnyLink.parentElement));
