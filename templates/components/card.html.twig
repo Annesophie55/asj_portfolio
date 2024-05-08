@@ -16,7 +16,12 @@
         {% endfor %}
         </ul>
     </div>
+<<<<<<< HEAD
      {% if is_granted('ROLE_ADMIN')%}
         {% include 'components/admin_btn.html.twig' with { 'experience': data } %}
+=======
+    {% if adminTools %}
+        {% include 'admin_btn.html.twig' %}
+>>>>>>> fe9e9d398c46d04d9c7ccd3e20fa797f0feeea91
     {% endif %}
 </div>

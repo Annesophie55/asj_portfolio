@@ -9,9 +9,17 @@
         <h1 class="inter-bold">Anne-Sophie <br>
         Jackowska</h1>
         {% if pageProject %}
-        <p class="project_text inter_regular">Pour garantir la maintenabilité et la réutilisabilité du code dans mes projets d'envergure, j'adopte systématiquement la méthode agile. Cette approche me permet de répondre de manière flexible et efficace aux besoins évolutifs du projet. Dès les premières étapes, je m'appuie sur des cahiers des charges détaillés, des wireframes, et des prototypes réalisés sur Figma pour visualiser et peaufiner les fonctionnalités avant leur développement, assurant ainsi que chaque produit fini, répond non seulement aux exigences initiales mais est également prêt à évoluer. </p>
+        <p class="project_text inter_regular">Pour garantir la maintenabilité et la réutilisabilité du code dans mes projets d'envergure, j'adopte  la méthode agile. Cela me permet de répondre de manière flexible et efficace aux besoins évolutifs du projet. Dès les premières étapes, je m'appuie sur des cahiers des charges détaillés et des prototypes réalisés sur Figma pour visualiser les fonctionnalités avant leur développement, assurant que chaque produit fini, répond non seulement aux exigences initiales mais est également prêt à évoluer. </p>
 
         <div class="techno_list_project">
+            <button class="technos_items_project">PHP</button>
+            <button class="technos_items_project">Symfony</button>
+            <button class="technos_items_project">PHP</button>
+            <button class="technos_items_project">Symfony</button>
+            <button class="technos_items_project">PHP</button>
+            <button class="technos_items_project">Symfony</button>
+            <button class="technos_items_project">PHP</button>
+            <button class="technos_items_project">Symfony</button>
             <button class="technos_items_project">PHP</button>
             <button class="technos_items_project">Symfony</button>
         </div>
@@ -30,15 +38,28 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var halo = document.getElementById('halo');
+    var checkbox = document.getElementById('side_toggle'); 
+  var links = document.querySelectorAll('.nav_lat_link');
   window.addEventListener('mousemove', (e) => {
     const haloSize = 200;  // Moitié de la taille du halo pour centrer sur la souris
     halo.style.left = `${e.clientX - haloSize}px`;
     halo.style.top = `${e.clientY - haloSize}px`;
   });
 
+    // Ajout d'un écouteur d'événements pour tous les liens
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      addActiveClass(link);
+      checkbox.checked = !checkbox.checked; // Bascule l'état de la checkbox
+    });
+  });
+
+
+
   function addActiveClass(clickedElement) {
     var links = document.querySelectorAll('.nav_lat_link');
     links.forEach(link => link.classList.remove('active'));
+
     clickedElement.classList.add('active');
   }
 
@@ -47,6 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var compagnyLink = document.querySelector('.nav_lat_link button[onclick*="compagny"]');
   var formationBlock = document.getElementById('formation');
   var compagnyBlock = document.getElementById('compagny');
+
+
 
   formationBlock.addEventListener('mouseenter', () => addActiveClass(formationLink.parentElement));
   compagnyBlock.addEventListener('mouseenter', () => addActiveClass(compagnyLink.parentElement));

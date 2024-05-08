@@ -21,7 +21,10 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
+<<<<<<< HEAD
             'addChevronFooter' => false,
+=======
+>>>>>>> fe9e9d398c46d04d9c7ccd3e20fa797f0feeea91
         ]);
     }
 
