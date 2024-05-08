@@ -9,3 +9,9 @@
 #compagny, #compagny * {
   z-index: 0;  
 }
+
+@media screen and (max-width:800px) {
+  .experience {
+  grid-template-columns: 1fr !important;
+}
+}

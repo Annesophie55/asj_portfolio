@@ -30,22 +30,26 @@ header {
     border: none;
     margin-right: 30px;
   }
-  nav {
+  #navigation {
+    padding-top: 10px;
+    padding-bottom: 10px;
     position: absolute;
     flex-direction: column;
-    top: 61px;
+    color: rgb(238, 238, 243);
+    top: 50px;
     width: 100%;
-    background-color: var(--gray-2);
+    background-color: rgb(22, 14, 46);
+    z-index: 100;
     
     .nav-links {
       display: block;
       li {
         text-align: center;
-        padding: 7px;
+        padding: 9px;
       }
     }
     .social-links {
-      padding: 7px;
+      padding: 9px;
     }
   }
 }

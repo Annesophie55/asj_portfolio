@@ -5,3 +5,9 @@
   grid-template-columns: 1fr 1fr;
   padding-top: 20px;
 }
+
+@media screen and (max-width:800px) {
+  .project_container {
+  grid-template-columns: 1fr !important;
+}
+}

@@ -6,21 +6,23 @@
 <div class="experience bgc-navy-gradient">
     {% include 'components/lateral_nav.html.twig' %}
     <div class="experience_container">
+         {% if is_granted('ROLE_ADMIN')%}
+        {% include 'experience/_form.html.twig' %}
+        {% endif %}
     <div id="formation">
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
+      {% for experience in data %}
+          {% if experience.type == 'Formation' %}
+            {% include 'components/card.html.twig' with {'data': experience} %}
+          {% endif %}
+      {% endfor %}
     </div>
     <hr>
     <div id="compagny">
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
-    {% include 'components/card.html.twig' %}
+        {% for experience in data %}
+            {% if experience.type == 'compagny' %}
+                {% include 'components/card.html.twig' with {'data': experience} %}
+            {% endif %}
+        {% endfor %}
     </div>
 
     </div>
@@ -38,14 +40,17 @@
 document.addEventListener('DOMContentLoaded', function() {
   var halo = document.getElementById('halo');
   var navbar = document.querySelector('header');
+   var footer = document.querySelector('footer');
 
   window.addEventListener('mousemove', (e) => {
     const navbarRect = navbar.getBoundingClientRect();
+    const footerRect = footer.getBoundingClientRect();
     const haloSize = 200;  // Moitié de la taille du halo pour centrer sur la souris
 
     // Vérifier si la souris est en dehors de la navbar
     if (e.clientX < navbarRect.left || e.clientX > navbarRect.right ||
-        e.clientY < navbarRect.top || e.clientY > navbarRect.bottom) {
+        e.clientY < navbarRect.top || e.clientY > navbarRect.bottom || e.clientX < footerRect.left || e.clientX > footerRect.right ||
+        e.clientY < footerRect.top || e.clientY > footerRect.bottom) {
       halo.style.left = `${e.clientX - haloSize}px`;
       halo.style.top = `${e.clientY - haloSize}px`;
       halo.style.display = 'block';  // Assurez-vous que le halo est visible

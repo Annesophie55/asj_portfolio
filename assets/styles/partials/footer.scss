@@ -1,4 +1,4 @@
-.footer {
+.footer-with-chevron {
   color: var(--gray-1);
   font-size: 16px;
   text-align: center;
@@ -55,14 +55,52 @@
 }
 
 @media screen and (max-width: 768px) {
-  .footer-container {
+  .footer-container-with-chevron {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    ul {
-      margin-top: 10px;
+    font-size:14px;
+    position: absolute;
+    // ul {
+
+    //   // margin-bottom: 20px;
+    // }
+
+  }
+  .back-to-top {
+    position: relative;
+    bottom: 40px;
+    
+    a {
+      width: 80px;
+      height: 80px;
+
+      .fa-chevron-up {
+        scale: 2 !important;
+        bottom: 20px !important;
+      }
+    }
+    .calc {
+      display: none;
     }
   }
+
+
+  .footer-container-without-chevron {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    font-size:14px
+  }
 }
+
+.footer-without-chevron {
+  height: 60px;
+  padding-top: 20px;
+}
+

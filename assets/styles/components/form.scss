@@ -72,3 +72,59 @@
     border-radius: 5px;
   }
 }
+
+@media screen and (max-width:800px) {
+  .contactContainer {
+  grid-template-columns: 1fr !important;
+  padding-bottom: 40px;
+}
+}
+
+
+.login_form {
+  height: 80vh;
+  background-color: RED;
+}
+
+
+.add_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    width: 60%;
+    div:not(:last-of-type) {
+      display: flex;
+      flex-direction: column;
+      input {
+        margin-top: 3px;
+        border-radius: 3px;
+        border: 1px solid rgb(134, 145, 244);
+        line-height: 20px;
+      }
+      textarea {
+        margin-top: 3px;
+        border-radius: 5px;
+        border: 1px solid rgb(134, 145, 244);
+      }
+      label {
+        margin-top: 5px;
+      }
+      button {
+        margin: 10px 5px;
+        box-shadow: var(--box-shadow);
+        align-self: self-end;
+        padding: 5px;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        border-radius: 25px;
+        background-color: rgb(134, 145, 244);
+        color: white;
+        border: 1px solid rgb(134, 145, 244);
+      }
+    }
+  }
+}
