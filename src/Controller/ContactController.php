@@ -26,7 +26,8 @@ class ContactController extends AbstractController
             ->from($contactData['email'])
             ->to('jackowska.annesophie@outlook.fr')
             ->subject($contactData['objet'])
-            ->text($contactData['email'] );
+            ->html("<p>" . nl2br(htmlspecialchars($contactData['message'])) . "</p><p><strong>" . htmlspecialchars($contactData['nom']) . "</strong></p>");
+        
 
         $mailer->send($email);
 
