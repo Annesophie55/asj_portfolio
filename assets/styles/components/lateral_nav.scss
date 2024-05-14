@@ -104,14 +104,6 @@
   display: none;
 }
 
-.toggle-checkbox:checked + .toggle-label + .bloc_sticky_nav {
-  transform: translateX(260px); 
-}
-
-.toggle-checkbox:checked + .toggle-label  {
-  transform: translateX(258px);
-}
-
 .toggle-label {
   height: 100px;
   width: 30px;
@@ -155,6 +147,14 @@
       padding: 10px 20px 40px 20px;
     }
 
+}
+
+.toggle-checkbox:checked + .toggle-label + .bloc_sticky_nav {
+  transform: translateX(260px); 
+}
+
+.toggle-checkbox:checked + .toggle-label  {
+  transform: translateX(258px);
 }
 
 .lateral_nav {

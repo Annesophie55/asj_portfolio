@@ -3,26 +3,34 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request): Response
+    public function index(Request $request, MailerInterface $mailer): Response
     {
         $formContact = $this->createForm(ContactType::class, null, [
-            'attr' => ['id' => 'contactForm'] // Ajouter l'ID ici
+            'attr' => ['id' => 'contactForm'] 
         ]);
         $formContact->handleRequest($request);
 
         if ($formContact->isSubmitted() && $formContact->isValid()) {
             $contactData = $formContact->getData();
-            // Envoyer les données par e-mail, etc.
+            $email = (new Email())
+            ->from($contactData['email'])
+            ->to('jackowska.annesophie@outlook.fr')
+            ->subject($contactData['objet'])
+            ->text($contactData['email'] );
 
-            return $this->redirectToRoute('success_page');
+        $mailer->send($email);
+
+            return $this->redirectToRoute('app_contact');
         }
 
         return $this->render('contact/index.html.twig', [

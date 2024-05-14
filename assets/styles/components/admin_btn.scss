@@ -1,0 +1,25 @@
+
+.btn_bloc {
+  margin-left: auto;
+
+  .btn_delete {
+    background-color: red;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s opacity;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .btn{
+    margin-right: 5px;
+    color: whitesmoke;
+  }
+  .btn_stock {
+    background-color: rgb(248, 132, 8);
+  }
+  .btn_change {
+    background-color: rgb(19, 79, 70);
+  }
+}

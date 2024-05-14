@@ -19,7 +19,7 @@
     <hr>
     <div id="compagny">
         {% for experience in data %}
-            {% if experience.type == 'compagny' %}
+            {% if experience.type == 'Compagny' %}
                 {% include 'components/card.html.twig' with {'data': experience} %}
             {% endif %}
         {% endfor %}

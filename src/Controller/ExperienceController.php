@@ -23,34 +23,6 @@ class ExperienceController extends AbstractController
     
         $data = $experienceRepository->findAll();
 
-<<<<<<< HEAD
-=======
-        return $this->render('experience/index.html.twig', [
-            'experiences' => $experienceRepository->findAll(),
-            'showImage' => false,
-            'pageProject' =>false,
-            'addChevronFooter' => true,
-            'adminTools'=> false
-        ]);
-    }
-
-    #[Route('/admin', name: 'app_experience_admin_index', methods: ['GET'])]
-    public function adminToolsOnExperienceIndex(ExperienceRepository $experienceRepository): Response
-    {
-
-        return $this->render('experience/index.html.twig', [
-            'experiences' => $experienceRepository->findAll(),
-            'showImage' => false,
-            'pageProject' =>false,
-            'addChevronFooter' => true,
-            'adminTools'=> true
-        ]);
-    }
-
-    #[Route('/new', name: 'app_experience_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
->>>>>>> fe9e9d398c46d04d9c7ccd3e20fa797f0feeea91
         $experience = new Experience();
 
         $form = $this->createForm(ExperienceType::class, $experience);
@@ -115,6 +87,7 @@ class ExperienceController extends AbstractController
         return $this->render('experience/edit.html.twig', [
             'experience' => $experience,
             'form' => $form,
+            'addChevronFooter' => false,
         ]);
     }
 

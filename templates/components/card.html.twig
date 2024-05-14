@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card d-flex flex-column">
         <div>  
         {% if showImage %}
             <img src="path/to/image.jpg" alt="Image Description">
@@ -6,22 +6,17 @@
             <p class="dateOf inter-regular">{{ data.dateOfExp }}</p>
         {% endif %} 
         </div>
-    <div class="aboutExp inter-regular">
+    <div class="aboutExp inter-regular  d-flex flex-column">
         <h1>{{  data.title }} | {{ data.role }} | {{ data.place }}</h1>
         <p>{{  data.content }} </p>
         <ul class="technos_List d-flex">
         {% for techno in data.technologies %}
             <li class="technos_items">{{ techno.name }} <img src="" alt="logo"></li>
-            <li class="technos_items">PHP <img src="" alt="logo"></li>
         {% endfor %}
         </ul>
-    </div>
-<<<<<<< HEAD
-     {% if is_granted('ROLE_ADMIN')%}
+             {% if is_granted('ROLE_ADMIN')%}
         {% include 'components/admin_btn.html.twig' with { 'experience': data } %}
-=======
-    {% if adminTools %}
-        {% include 'admin_btn.html.twig' %}
->>>>>>> fe9e9d398c46d04d9c7ccd3e20fa797f0feeea91
     {% endif %}
+    </div>
+
 </div>
