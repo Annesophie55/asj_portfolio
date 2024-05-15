@@ -10,6 +10,12 @@
                         {% if is_granted('ROLE_ADMIN')%}
         {% include 'project/_form.html.twig' %}
         {% endif %}
+        {% for flash_message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
             {% for project in data %}
             {% include 'components/card.html.twig' with {'data': project}  %}             
             {% endfor %}

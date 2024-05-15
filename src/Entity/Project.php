@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
+#[Vich\Uploadable]
 class Project
 {
     #[ORM\Id]
@@ -25,14 +28,14 @@ class Project
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $link = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $img = null;
-
     /**
      * @var Collection<int, Technology>
      */
     #[ORM\ManyToMany(targetEntity: Technology::class, inversedBy: 'projects')]
     private Collection $technologies;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $img = null;
 
     public function __construct()
     {
@@ -80,16 +83,14 @@ class Project
         return $this;
     }
 
+    public function setImg(?string $img): void
+    {
+        $this->img = $img;
+    }
+
     public function getImg(): ?string
     {
         return $this->img;
-    }
-
-    public function setImg(string $img): static
-    {
-        $this->img = $img;
-
-        return $this;
     }
 
     /**

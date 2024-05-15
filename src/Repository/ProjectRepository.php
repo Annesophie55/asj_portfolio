@@ -19,17 +19,17 @@ class ProjectRepository extends ServiceEntityRepository
     //    /**
     //     * @return Project[] Returns an array of Project objects
     //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('p.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+       public function findByTechnology($techno_id): array
+       {
+           return $this->createQueryBuilder('p')
+                ->join('p.technologies', 't')
+               ->andWhere('t.id = :techno_id')
+               ->setParameter('techno_id', $techno_id)
+               ->orderBy('p.id', 'ASC')
+               ->getQuery()
+               ->getResult()
+           ;
+       }
 
     //    public function findOneBySomeField($value): ?Project
     //    {

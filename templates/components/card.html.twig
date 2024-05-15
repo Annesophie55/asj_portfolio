@@ -1,19 +1,30 @@
 <div class="card d-flex flex-column">
-        <div>  
+       
         {% if showImage %}
-            <img src="path/to/image.jpg" alt="Image Description">
-        {% else %}
-            <p class="dateOf inter-regular">{{ data.dateOfExp }}</p>
-        {% endif %} 
+        <div class="project_img"><img src="{{ asset('images/' ~ data.img) }}" alt="Image Description">
         </div>
+
+        {% else %}
+         <div>  
+            <p class="dateOf inter-regular">{{ data.dateOfExp }}</p>
+        </div>
+        {% endif %} 
+      
     <div class="aboutExp inter-regular  d-flex flex-column">
-        <h1>{{  data.title }} | {{ data.role }} | {{ data.place }}</h1>
+        <h1>{{  data.title }}  {% if not(showImage) %} | {{ data.role }} | {{ data.place }} {% endif %}</h1>
+        {% if showImage %}
+        <p>{{  data.description }} </p>
+         {% else %}
         <p>{{  data.content }} </p>
+        {% endif %} 
         <ul class="technos_List d-flex">
         {% for techno in data.technologies %}
-            <li class="technos_items">{{ techno.name }} <img src="" alt="logo"></li>
+            <li class="technos_items">{{ techno.name }}</li>
         {% endfor %}
         </ul>
+        {% if showImage %}
+        <a href="{{ data.link }}">{{ data.link }}</a>
+         {% endif %}
              {% if is_granted('ROLE_ADMIN')%}
         {% include 'components/admin_btn.html.twig' with { 'experience': data } %}
     {% endif %}

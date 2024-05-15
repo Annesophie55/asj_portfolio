@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
+use App\Repository\TechnologyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,35 +17,43 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 #[Route('/project')]
 class ProjectController extends AbstractController
 {
-    #[Route('/', name: 'app_project_index', methods: ['GET', 'POST'])]
-    public function index(ProjectRepository $projectRepository, Request $request, EntityManagerInterface $entityManager,  SluggerInterface $slugger): Response
+    #[Route('/{techno_id}', name: 'app_project_index', methods: ['GET', 'POST'])]
+    public function index(ProjectRepository $projectRepository, Request $request, EntityManagerInterface $entityManager, TechnologyRepository $technologyRepository, $techno_id=null): Response
     {
-        $data = $projectRepository->findAll();
+        $data = $techno_id ? $projectRepository->findByTechnology($techno_id) : $projectRepository->findAll();
+        if(!($data)) {
+            $this->addFlash(
+                'error', 
+                'Il n\'y a pas de projet avec cette technologie' 
+            );
+        }
 
-        $brochuresDirectory = 'public/image';
+        $technos = $technologyRepository->findAll();
+
         $project = new Project();
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $brochureFile = $form->get('brochure')->getData();
-            if ($brochureFile) {
-                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
-        
+            $file = $form->get('img')->getData();
+            if ($file) {
+                $filename = uniqid().'.'.$file->guessExtension();
                 try {
-                    $brochureFile->move($brochuresDirectory, $newFilename);
+                    $file->move($this->getParameter('projects_directory'), $filename);
                 } catch (FileException $e) {
-                    // handle exception if something happens during file upload
+                    // Gérer l'erreur
                 }
-        
-                $project->setImg($newFilename);
+                $project->setImg($filename);
             }
-        
 
             $entityManager->persist($project);
             $entityManager->flush();
+
+
+            $this->addFlash(
+                'success', // Type de message, peut être 'success', 'error', 'warning', etc.
+                'Le projet a été ajouté avec succès !' // Message à afficher
+            );
 
             return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -57,6 +66,7 @@ class ProjectController extends AbstractController
             'adminTools'=> false,
             'project' => $project,
             'form' => $form,
+            'technos'=>$technos
         ]);
     }
 
