@@ -6,9 +6,6 @@
   max-width: 500px;
   min-width: 200px;
   padding: 15px;
-  &:last-of-type {
-    margin-bottom: 80px;
-  }
 
   .dateOf{
       margin-right: 20px;
@@ -38,9 +35,12 @@
 
 .technos_items {
   border: 1px solid rgb(80,96,125);
+  color:rgb(80,96,125);
   padding: 5px;
   border-radius: 25px;
   font-size: 16px !important;
+  margin: 5px;
+  background-color:transparent;
   &:not(:first-of-type) {
     margin-left: 5px;
   }
@@ -55,4 +55,8 @@
     border-radius: 5px;
     margin: 0px 8px;
   }
+}
+
+.technos_List {
+  flex-wrap: wrap;
 }

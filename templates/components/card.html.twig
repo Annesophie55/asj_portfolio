@@ -1,3 +1,9 @@
+{% if showImage %}
+    {% if data.link %}
+        <a href="{{ data.link }}">
+    {% endif %} 
+{% endif %}
+
 <div class="card d-flex flex-column">
        
         {% if showImage %}
@@ -23,11 +29,16 @@
         {% endfor %}
         </ul>
         {% if showImage %}
-        <a href="{{ data.link }}">{{ data.link }}</a>
+
          {% endif %}
              {% if is_granted('ROLE_ADMIN')%}
-        {% include 'components/admin_btn.html.twig' with { 'experience': data } %}
+        {% include 'components/admin_btn.html.twig' with { 'data': data } %}
     {% endif %}
     </div>
 
 </div>
+{% if showImage %}
+    {% if data.link %}
+        </a>   
+    {% endif %}
+{% endif %}

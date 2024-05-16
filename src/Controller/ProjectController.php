@@ -66,7 +66,7 @@ class ProjectController extends AbstractController
             'adminTools'=> false,
             'project' => $project,
             'form' => $form,
-            'technos'=>$technos
+            'technos'=>$technos,
         ]);
     }
 
@@ -97,25 +97,56 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+            $newFile = $form->get('img')->getData();
+            if($newFile){
+                $oldFileName = $project->getImg();
+                if ($oldFileName) {
+                    $oldFilePath = $this->getParameter('projects_directory') . '/' . $oldFileName;
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath); // Supprimer l'ancien fichier
+                    }
+                }
 
-            return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
-        }
+                $newFilename = uniqid().'.'.$newFile->guessExtension();
+                try {
+                    $newFile->move($this->getParameter('projects_directory'), $newFilename);
+                    $project->setImg($newFilename);
+                } catch (FileException $e) {
+                    // Gérer l'erreur
+                    $this->addFlash('error', 'Erreur lors de la sauvegarde du fichier.');
+                }
+            }
+        $entityManager->flush();
+        $this->addFlash('success', 'Le projet a été mis à jour avec succès !');
+        return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
+    }
+        
 
         return $this->render('project/edit.html.twig', [
             'project' => $project,
             'form' => $form,
+            'addChevronFooter' => false,
         ]);
     }
 
     #[Route('/{id}', name: 'app_project_delete', methods: ['POST'])]
     public function delete(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$project->getId(), $request->getPayload()->get('_token'))) {
-            $entityManager->remove($project);
-            $entityManager->flush();
+        if ($this->isCsrfTokenValid('delete'.$project->getId(), $request->request->get('_token'))) {
+            $filePath = $this->getParameter('projects_directory') . '/' . $project->getImg();
+            if($project->getImg() && file_exists($filePath)) {
+                unlink($filePath);
+            }
+            try {
+                $entityManager->remove($project);
+                $entityManager->flush();
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Impossible de supprimer le projet: ' . $e->getMessage());
+                return $this->redirectToRoute('app_project_index');
+            }
         }
-
+    
         return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
     }
+    
 }
