@@ -1,16 +1,14 @@
 
-<nav class="lateral_nav" id="side_nav">
+<nav class="lateral_nav d-flex flex-column" id="side_nav">
    <input type="checkbox" id="side_toggle" class="toggle-checkbox">
     <label for="side_toggle" class="toggle-label">
         <i class="fa fa-chevron-right"></i>
     </label>
 
-    <div class="bloc_sticky_nav d-flex flex-column  flex-center">
+    <div class="bloc_sticky_nav d-flex flex-column">
+        {% if pageProject %}
         <h1 class="inter-bold">Anne-Sophie <br>
         Jackowska</h1>
-        {% if pageProject %}
-        <p class="project_text inter_light">Pour garantir la maintenabilité et la réutilisabilité du code dans mes projets d'envergure, j'adopte  la méthode agile. Cela me permet de répondre de manière flexible et efficace aux besoins évolutifs du projet. Dès les premières étapes, je m'appuie sur des cahiers des charges détaillés et des prototypes réalisés sur Figma pour visualiser les fonctionnalités avant leur développement, assurant que chaque produit fini, répond non seulement aux exigences initiales mais est également prêt à évoluer. </p>
-
         <div class="techno_list_project">
         {% for techno in technos %}
              <a class="technos_items_project"  href="{{ path('app_project_index', {'techno_id': techno.id}) }}" class="btn technos_items_project">{{ techno.name }}</a>

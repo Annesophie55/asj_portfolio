@@ -2,15 +2,15 @@
 
     {% if showImage %}
         <a class="btn btn_change" href="{{ path('app_project_edit', {'id': data.id})}}">Modifier</a>
-<form method="post" action="{{ path('app_project_delete', {'id': data.id}) }}" onsubmit="return confirm('T\'es sûre de vouloir supprimer ?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}">
-    <button class="btn btn_delete">Delete</button>
-</form>
+        <form method="post" action="{{ path('app_project_delete', {'id': data.id}) }}" onsubmit="return confirm('T\'es sûre de vouloir supprimer ?');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}">
+            <button class="btn btn_delete">Supprimer</button>
+        </form>
     {% else %}
         <a class="btn btn_change" href="{{ path('app_experience_edit', {'id': data.id})}}">Modifier</a>
         <form method="post" action="{{ path('app_experience_delete', {'id': data.id}) }}" onsubmit="return confirm('T\'es sûre de vouloir supprimer ?');">
-        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}">
-        <button class="btn btn_delete">Supprimer</button>
-    </form>
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}">
+            <button class="btn btn_delete">Supprimer</button>
+        </form>
     {% endif %}
 </div>

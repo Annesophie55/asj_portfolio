@@ -25,5 +25,5 @@
 ###< symfony/asset-mapper ###
 
 # ###> public/images ###
-# /public/images
+/public/images
 # ###< public/images ###

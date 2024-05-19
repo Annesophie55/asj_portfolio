@@ -82,14 +82,6 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_project_show', methods: ['GET'])]
-    public function show(Project $project): Response
-    {
-        return $this->render('project/show.html.twig', [
-            'project' => $project,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_project_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
@@ -118,7 +110,7 @@ class ProjectController extends AbstractController
             }
         $entityManager->flush();
         $this->addFlash('success', 'Le projet a été mis à jour avec succès !');
-        return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_project_index');
     }
         
 
@@ -129,10 +121,10 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_project_delete', methods: ['POST'])]
+    #[Route('delete/{id}', name: 'app_project_delete', methods: ['POST'])]
     public function delete(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$project->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$project->getId(), $request->getPayload()->get('_token'))) {
             $filePath = $this->getParameter('projects_directory') . '/' . $project->getImg();
             if($project->getImg() && file_exists($filePath)) {
                 unlink($filePath);
@@ -141,12 +133,14 @@ class ProjectController extends AbstractController
                 $entityManager->remove($project);
                 $entityManager->flush();
             } catch (\Exception $e) {
+                // Log or dump the exception to see if something goes wrong here
                 $this->addFlash('error', 'Impossible de supprimer le projet: ' . $e->getMessage());
+                dump($e); // Only for development debugging, remove in production
                 return $this->redirectToRoute('app_project_index');
             }
         }
     
-        return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_project_index');
     }
     
 }

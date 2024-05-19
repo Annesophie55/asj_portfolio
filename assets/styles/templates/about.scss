@@ -6,14 +6,13 @@
   border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  overflow-x: hidden;
+  gap: 20px;}
   
   .title-block {
     padding: 15px;
     text-align: center;
     position: sticky;
-
+    top: 20px;
     h1{
       color: black;
     }
@@ -49,7 +48,7 @@
     
   }
 
-}
+
 
 @media screen and (max-width: 768px) {
   .about-container {

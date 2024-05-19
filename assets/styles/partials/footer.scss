@@ -64,15 +64,14 @@
     margin-right: 0;
     font-size:14px;
     position: absolute;
-    // ul {
-
-    //   // margin-bottom: 20px;
-    // }
+    ul {
+      position: absolute;
+      bottom: 5px;
+    }
 
   }
   .back-to-top {
-    position: relative;
-    bottom: 40px;
+    box-shadow: none !important;
     
     a {
       width: 80px;
