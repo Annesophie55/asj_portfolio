@@ -4,9 +4,11 @@
   padding: 30px;
   margin-top: 40px;
   border-radius: 5px;
+  min-width: 280px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;}
+  
   
   .title-block {
     padding: 15px;
@@ -26,6 +28,7 @@
       padding: 12px;
       color:var( --white);
       background-color:rgb(8, 8, 54);
+      align-self: center;
     }
   }
   .about-content {
@@ -54,9 +57,15 @@
   .about-container {
     margin: inherit;
     grid-template-columns: 1fr;
-    .title-block {
-      min-width: 230px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .title-block {
+        max-width: 230px;
+      }
     }
+
     .about-content {
       line-height: 18px;
       display: flex;
