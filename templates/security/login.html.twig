@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block description %}
+Connexion à mon espace administrateur pour ajouter, modifier ou supprimer des projets et des experiences sur mon portfolio de développeur web. 
+{% endblock %}
 
+{% block title %}DevByASJ - Connexion Administration{% endblock %}
 {% block body %}
-    <form method="post">
+    <form method="post" class="container d-flex flex-center flex-column">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -24,18 +27,7 @@
                value="{{ csrf_token('authenticate') }}"
         >
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" name="_remember_me"> Remember me
-                </label>
-            </div>
-        #}
-
-        <button class="btn btn-lg btn-primary" type="submit">
+        <button class="btn btn-lg my-10" type="submit">
             Sign in
         </button>
     </form>

@@ -23,7 +23,7 @@ class ContactType extends AbstractType
             ->add('Envoyer', SubmitType::class);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver):void
     {
         $resolver->setDefaults([
             // No data class

@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Anne-Sophie Jackowska Dev - À propos{% endblock %}
+{% block block_name %}
+    Découvrez DevByASJ, Anne-Sophie Jackowska, une développeuse web fullstack passionnée, spécialisée en HTML, CSS, PHP, Sass et Symfony. Parcourez mon portfolio pour voir mes projets et envisager une collaboration.
+{% endblock %}
+
+{% block title %}DevByASJ – Développeuse Web Fullstack en HTML, CSS, PHP{% endblock %}
 
 {% block body %}
 <section class="home without-overflow">
@@ -12,7 +16,7 @@
             
             <div class="home-btn ubuntu-medium">
                <a href="{{ asset('images/Jackowska_Alternant.pdf') }}" class="cvBtn">CV</a>
-               <a href="#contact" class="contactBtn" target="\blank">Me contacter</a>
+               <a href="{{ path('app_contact')}} " class="contactBtn" target="\blank">Me contacter</a>
             </div  >
         </div>
     </div>    

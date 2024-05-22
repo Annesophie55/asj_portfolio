@@ -20,17 +20,14 @@
         <h1>{{  data.title }}  {% if not(showImage) %} | {{ data.role }} | {{ data.place }} {% endif %}</h1>
         {% if showImage %}
         <p>{{  data.description }} </p>
-         {% else %}
-        <p>{{  data.content }} </p>
-        {% endif %} 
         <ul class="technos_List d-flex">
         {% for techno in data.technologies %}
             <li class="technos_items">{{ techno.name }}</li>
         {% endfor %}
         </ul>
-        {% if showImage %}
-
-         {% endif %}
+         {% else %}
+        <p>{{  data.content }} </p>
+        {% endif %} 
              {% if is_granted('ROLE_ADMIN')%}
         {% include 'components/admin_btn.html.twig' with { 'data': data } %}
     {% endif %}

@@ -34,17 +34,6 @@ class Experience
     #[ORM\Column(length: 255)]
     private ?string $type = null;
 
-    /**
-     * @var Collection<int, Technology>
-     */
-    #[ORM\ManyToMany(targetEntity: Technology::class, inversedBy: 'experiences')]
-    private Collection $Technologies;
-
-    public function __construct()
-    {
-        $this->Technologies = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -118,30 +107,6 @@ class Experience
     public function setType(string $type): static
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Technology>
-     */
-    public function getTechnologies(): Collection
-    {
-        return $this->Technologies;
-    }
-
-    public function addTechnology(Technology $technology): static
-    {
-        if (!$this->Technologies->contains($technology)) {
-            $this->Technologies->add($technology);
-        }
-
-        return $this;
-    }
-
-    public function removeTechnology(Technology $technology): static
-    {
-        $this->Technologies->removeElement($technology);
 
         return $this;
     }

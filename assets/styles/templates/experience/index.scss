@@ -3,7 +3,8 @@
   color:#d2c9c9;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-top: 20px;
+  padding: 40px 0;
+  position: relative;
 }
 
 #compagny, #compagny * {
@@ -12,6 +13,9 @@
 
 @media screen and (max-width:800px) {
   .experience {
-  grid-template-columns: 1fr !important;
+  grid-template-columns: 1fr;
+  width: 100%;
+  margin: 0;
+  left:-2px; 
 }
 }

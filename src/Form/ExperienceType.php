@@ -29,12 +29,6 @@ class ExperienceType extends AbstractType
             ->add('dateOfExp', null)
             ->add('type')
             ->add('role')
-            ->add('Technologies', EntityType::class, [
-                'class' => Technology::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,  // Ceci rendra les choix comme des checkboxes
-            ])
         ;
     }
 

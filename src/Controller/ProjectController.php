@@ -28,6 +28,8 @@ class ProjectController extends AbstractController
             );
         }
 
+        shuffle($data);
+
         $technos = $technologyRepository->findAll();
 
         $project = new Project();

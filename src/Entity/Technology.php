@@ -19,13 +19,6 @@ class Technology
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-
-    /**
-     * @var Collection<int, Experience>
-     */
-    #[ORM\ManyToMany(targetEntity: Experience::class, mappedBy: 'technologies')]
-    private Collection $experiences;
-
     /**
      * @var Collection<int, Project>
      */
@@ -34,7 +27,6 @@ class Technology
 
     public function __construct()
     {
-        $this->experiences = new ArrayCollection();
         $this->projects = new ArrayCollection();
     }
 
@@ -51,33 +43,6 @@ class Technology
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Experience>
-     */
-    public function getExperiences(): Collection
-    {
-        return $this->experiences;
-    }
-
-    public function addExperience(Experience $experience): static
-    {
-        if (!$this->experiences->contains($experience)) {
-            $this->experiences->add($experience);
-            $experience->addTechnology($this);
-        }
-
-        return $this;
-    }
-
-    public function removeExperience(Experience $experience): static
-    {
-        if ($this->experiences->removeElement($experience)) {
-            $experience->removeTechnology($this);
-        }
 
         return $this;
     }

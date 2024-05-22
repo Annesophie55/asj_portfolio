@@ -23,6 +23,7 @@
       font-size: 30px;
       margin-left: 20px;
       margin-top: 25px;
+      padding: 10px;
     }
     ul {
       display: flex;
@@ -89,20 +90,25 @@
   }
 }
 
-.technos_items_project {
-  border: 1px solid rgb(80,96,125);
-  color:rgb(80,96,125);
-  padding: 5px;
-  border-radius: 25px;
-  font-size: 14px !important;
-  cursor: pointer;
-  margin: 5px;
-  background-color:transparent;
-  &:hover {
-    border: 1px solid  rgb(20, 212, 215);
-    color: rgb(20, 212, 215);
+.techno_list_project {
+  padding: 10px;
+  .technos_items_project {
+    border: 1px solid rgb(80,96,125);
+    color:rgb(80,96,125);
+    padding: 3px;
+    border-radius: 25px;
+    font-size: 14px !important;
+    cursor: pointer;
+    margin: 5px;
+    background-color:transparent;
+    &:hover {
+      border: 1px solid  rgb(20, 212, 215);
+      color: rgb(20, 212, 215);
+    }
   }
 }
+
+
 
 
 .toggle-checkbox {
@@ -118,7 +124,7 @@
   border: 2px solid rgb(10, 234, 250);
   justify-content: center;
   align-items: center;
-  top: 20vh;
+  margin-top: 40%;
   position: fixed;
   transition: transform 0.6s ease;
   display: none;
@@ -138,6 +144,7 @@
 
 
 @media screen and (max-width:800px) {
+  
   .bloc_sticky_nav  {
     margin-left: 20px;
     display: flex;
@@ -145,6 +152,8 @@
     background-color: #050219;
     position: relative;
     border-radius: 5px;
+    transform: translateX(0px); 
+
     h1 {
       font-size: 28px !important;
     }
@@ -155,11 +164,11 @@
 }
 
 .toggle-checkbox:checked + .toggle-label + .bloc_sticky_nav {
-  transform: translateX(260px); 
+  transform: translateX(256px); 
 }
 
 .toggle-checkbox:checked + .toggle-label  {
-  transform: translateX(258px);
+  transform: translateX(252px);
 }
 
 .lateral_nav {
@@ -189,8 +198,8 @@
 
 @media screen and (max-width:380px) {
   .bloc_sticky_nav {
-    img {
-      display: none;
+    h1 {
+      font-size: 18px !important;
     }
   }
 }
